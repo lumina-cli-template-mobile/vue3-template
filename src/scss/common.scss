@@ -1,0 +1,11 @@
+// 全局通用样式
+//页面背景色
+.page {
+  background-color: #f3f3f3;
+  height: 100vh;
+  --iphonex-fix-bottom: 0;
+  --iphonex-fix-bottom: constant(
+    safe-area-inset-bottom
+  ); /* iOS11.2 beta 开始被弃用 */
+  --iphonex-fix-bottom: env(safe-area-inset-bottom);
+}

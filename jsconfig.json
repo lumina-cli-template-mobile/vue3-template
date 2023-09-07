@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    // 注意，这里要配置baseUrl 和 paths，IDE中的别名才会生效和提示。
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
