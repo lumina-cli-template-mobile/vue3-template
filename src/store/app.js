@@ -26,7 +26,7 @@ const app = defineStore({
         this.AllEnums[key] = res.data;
         return res.data;
       }
-      if (this.AllEnums[key] && this.AllEnums[key].length > 0) {
+      if (this.AllEnums?.[key] && this.AllEnums[key].length > 0) {
         return this.AllEnums[key];
       }
     },
@@ -37,6 +37,8 @@ const app = defineStore({
     strategies: [
       {
         key: "app-store",
+        // todo ，需要持久化的字段写入，因为 AllEnums 不需要持久化
+        paths: ["count"],
       },
     ],
   },
