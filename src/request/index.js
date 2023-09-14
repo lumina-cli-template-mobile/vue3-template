@@ -64,12 +64,6 @@ http.interceptors.request.use(
     }
     const token = uni.getStorageSync("token");
     if (token) config.header["Authorization"] = `Bearer ${token}`;
-    if (region) {
-      config.header["region"] = `${region}`;
-    }
-    if (companyId) {
-      config.header["company"] = `${companyId}`;
-    }
     return config;
   },
   (error) => {

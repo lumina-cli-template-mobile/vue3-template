@@ -16,7 +16,7 @@
         @click="handleSub"
       ></up-button>
     </view>
-
+    <up-button text="修改用户枚举" @click="handleChangeEnum"></up-button>
     <TestComA />
   </view>
 </template>
@@ -24,7 +24,6 @@
 <script setup>
 import { onLoad } from "@dcloudio/uni-app";
 import { reactive, ref, computed } from "vue";
-
 import appStore from "@/store/app";
 let title = ref("首页");
 let state = reactive({
@@ -32,7 +31,8 @@ let state = reactive({
 });
 
 onLoad(() => {
-  console.log("onLoad", appStore, appStore().count);
+  appStore().getEnmuListByKey("userStatus", true);
+  appStore().getEnmuListByKey("orderStatus");
 });
 
 const handleAdd = () => {
@@ -40,6 +40,13 @@ const handleAdd = () => {
 };
 const handleSub = () => {
   appStore().count--;
+};
+
+const handleChangeEnum = () => {
+  appStore().AllEnums["userStatus"].push({
+    id: appStore().AllEnums["userStatus"].length + 1,
+    lable: "测试枚举",
+  });
 };
 </script>
 
